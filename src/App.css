@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&display=swap');
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --accent: #ff0055;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif; /* Modern, geometric font */
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center everything vertically */
+  overflow-x: hidden;
+  transition: background 0.5s ease;
+}
+
+body.warm {
+  background: linear-gradient(135deg, #ff4e50 0%, #f9d423 100%);
+}
+
+.app-container {
+  width: 100%;
+  max-width: 450px; /* Mobile-first sleek width */
+  padding: 2rem;
+}
+
+/* --- Typography --- */
+h1 {
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* --- Inputs --- */
+.search-box {
+  position: relative;
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+input {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: var(--glass-shadow);
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+}
+
+input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+}
+
+button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  border-radius: 15px;
+  border: none;
+  background: white;
+  color: #333;
+  font-weight: 700;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* --- Glass Cards --- */
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--glass-shadow);
+  text-align: center;
+}
+
+.main-card .temp {
+  font-size: 5rem;
+  font-weight: 800;
+  margin: 10px 0;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  line-height: 1;
+}
+
+.main-card .condition {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.detail-card {
+  background: rgba(0, 0, 0, 0.2); /* Slightly darker for contrast */
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-card h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  margin: 0 0 5px 0;
+}
+
+.detail-card p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.icon-large {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+/* Update the Main Card layout */
+.main-temp-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.high-low {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-top: -5px;
+}
+
+/* Update the Grid to be 2 columns but hold more items gracefully */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 15px;
+}
+
+/* Optional: Make it 3 columns on larger screens if you want */
+@media (min-width: 500px) {
+  .details-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.detail-card {
+  /* Keep existing styles, just ensure padding is tight enough for more data */
+  padding: 1.2rem; 
+}
+
+/* ... Previous CSS ... */
+
+/* Forecast Container */
+.forecast-container {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.forecast-container h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.forecast-grid {
+  display: flex; /* Horizontal row */
+  gap: 10px;
+  overflow-x: auto; /* Allow scrolling on mobile */
+  padding-bottom: 10px; /* Space for scrollbar */
+}
+
+/* Hide scrollbar for cleaner look */
+.forecast-grid::-webkit-scrollbar {
+  height: 6px;
+}
+.forecast-grid::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+.forecast-card {
+  min-width: 80px; /* Ensure they don't squish too much */
+  flex: 1;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.f-date {
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.f-temp {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 5px 0;
+}
+
+.f-desc {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin: 0;
+}
