@@ -1,4 +1,3 @@
-````markdown
 # 🌤️ SkyGrid - Modern Weather Dashboard
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -48,7 +47,7 @@ Follow these steps to run the project locally.
 ```bash
 git clone https://github.com/tejashree-dumasia/SkyGrid.git
 cd SkyGrid
-````
+```
 
 ### 2. Install dependencies
 
